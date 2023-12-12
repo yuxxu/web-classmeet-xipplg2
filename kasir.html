@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: rgb(33, 33, 33);
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            color: #262626;
+            background-image: url(bg.png);
+        }
+
+        .title {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #eaeaea;
+        }
+
+        .form {
+            display: flex;
+            background-color: rgb(247, 190, 120);
+            justify-content: center;
+            align-items: center;
+            margin-top: 100px;
+            height: 300px;
+            background-image: url(chara-think.png);
+            background-repeat: no-repeat;
+            background-size: 20%;
+            width: 1365px;
+        }
+
+        .btn {
+            margin-left: 4rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="title">
+        <h1>Kasir</h1>
+    </div>
+    <div class="form">
+        <form name="form">
+            <table>
+                <tr>
+                    <th colspan="2"></th>
+                </tr>
+                <tr>
+                    <th>NAMA BARANG</th>
+                    <th>JUMLAH BELI</th>
+                </tr>
+                <tr>
+                    <td>
+                        <label> <input type="checkbox" class="pulpen" /> </label>pulpen
+                    </td>
+                    <td><input type="text" class="jumlahBelipulpen" /></td>
+                </tr>
+                <tr>
+                    <td>
+                        <label> <input type="checkbox" class="pensil" /> </label>pensil
+                    </td>
+                    <td><input type="text" class="jumlahBelipensil" /></td>
+                </tr>
+                <tr>
+                    <td>
+                        <label> <input type="checkbox" class="buku" /> </label>buku
+                    </td>
+                    <td><input type="text" class="jumlahBelibuku" /></td>
+                </tr>
+                <tr>
+                    <td>
+                        <label> <input type="checkbox" class="penghapus" /> </label>penghapus
+                    </td>
+                    <td><input type="text" class="jumlahBelipenghapus" /></td>
+                </tr>
+                <tr>
+                    <td>
+                        <label> total harga </label>
+                    </td>
+                    <td><input type="text" id="total" disabled /></td>
+                </tr>
+                <tr>
+                    <td>
+                        <label> bayar </label>
+                    </td>
+                    <td><input type="text" id="payment" /></td>
+                </tr>
+                <tr>
+                    <td>
+                        <label> kembalian </label>
+                    </td>
+                    <td><input type="text" id="change" disabled /></td>
+                </tr>
+            </table>
+            <input class="btn" type="button" value="Proses" />
+            <input class="btn" type="button" value="Total Bayar" id="totalBayarBtn" />
+        </form>
+    </div>
+
+    <script>
+        let pulpen = document.querySelector('.pulpen');
+        const jmlpulpen = document.querySelector('.jumlahBelipulpen');
+        let pensil = document.querySelector('.pensil');
+        const jmlpensil = document.querySelector('.jumlahBelipensil');
+        let buku = document.querySelector('.buku');
+        const jmlbuku = document.querySelector('.jumlahBelibuku');
+        let penghapus = document.querySelector('.penghapus');
+        const jmlpenghapus = document.querySelector('.jumlahBelipenghapus');
+
+        const hasil = document.querySelector('#total');
+        const bayarInput = document.getElementById('payment');
+        const kembalian = document.getElementById('change');
+
+        const proses = document.querySelector('input[type="button"]');
+        proses.addEventListener('click', function () {
+            if (pulpen.checked === false && pensil.checked === false && buku.checked === false && penghapus.checked === false) {
+                alert('Check barang terlebih dahulu!');
+            }
+
+            let hargapulpen = 3000 * (jmlpulpen.value || 0);
+            let hargapensil = 2000 * (jmlpensil.value || 0);
+            let hargabuku = 5000 * (jmlbuku.value || 0);
+            let hargapenghapus = 1500 * (jmlpenghapus.value || 0);
+
+            let totalHarga = hargapulpen + hargapensil + hargabuku + hargapenghapus;
+            hasil.value = totalHarga;
+
+            let payment = parseFloat(bayarInput.value) || 0;
+            let change = payment - totalHarga;
+
+            if (change >= 0) {
+                kembalian.value = change;
+            } else {
+                alert('Uang tidak cukup!');
+            }
+        });
+
+        const totalBayarBtn = document.getElementById('totalBayarBtn');
+        totalBayarBtn.addEventListener('click', function () {
+            let hargapulpen = 3000 * (jmlpulpen.value || 0);
+            let hargapensil = 2000 * (jmlpensil.value || 0);
+            let hargabuku = 5000 * (jmlbuku.value || 0);
+            let hargapenghapus = 1500 * (jmlpenghapus.value || 0);
+
+            let totalHarga = hargapulpen + hargapensil + hargabuku + hargapenghapus;
+            hasil.value = totalHarga;
+        });
+    </script>
+</body>
+
+</html>

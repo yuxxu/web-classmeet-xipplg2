@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="bmi.css">
+</head>
+
+<body>
+    <div class="all">
+        <div class="title">
+            <h1>Perhitungan BMI</h1>
+        </div>
+        
+        <div class="container">
+            <div class="inner-content">
+                <div class="input">
+                    <label for="">Berat badan (kg)</label>
+                    <input id="kg" type="text">
+                </div>
+        
+                <div class="input">
+                    <label for=""> Tinggi (Cm ===> M)</label>
+                    <input id="meter" type="text">
+                </div>
+        
+                <div class="input">
+                    <button onclick="tampilkan()">Tampilkan</button>
+                    <p id="hasil"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+<script>
+    function tampilkan() {
+        var kg = parseFloat(document.getElementById('kg').value);
+        var meter = parseFloat(document.getElementById('meter').value);
+        if (!isNaN(kg) && !isNaN(meter)) {
+            var kuadrat = meter * meter;
+            var bmi = kg / kuadrat;
+
+
+            var hasil = 'hasil: ' + bmi;
+
+            document.getElementById('hasil').innerHTML = hasil;
+        }
+    }
+</script>
+
+</html>

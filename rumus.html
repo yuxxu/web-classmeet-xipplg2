@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="rumus.js"></script>
+    <link rel="stylesheet" href="rumus.css">
+    <title>Rumus Bangun Ruang</title>
+</head>
+<body>
+    <div class="all">
+        <div class="title">
+            <h1>Bangun Ruang</h1>
+        </div>
+        <div class="container-out">
+            <div class="container">
+                <h3>Balok</h3>
+                    <div class="inputan">
+                        <div class="container-input">
+                            <div class="inputBalok">
+                                <p>Masukkan Panjang :</p>
+                                <input id="panjang" type="number">
+                            </div>
+                        
+                            <div class="inputBalok">
+                                <p>Masukkan Lebar :</p>
+                                <input id="lebar" type="number">
+                            </div>
+                        
+                            <div class="inputBalok">
+                                <p>Masukkan Tinggi :</p>
+                                <input id="tinggi" type="number">
+                            </div>
+                        </div> 
+            
+                        <div class="container-hasil">
+                            <div class="button-hasil">
+                                <button id="done" onclick="hitungBalok()">Hitung</button>
+                            </div>
+                            <div class="hasil-input">
+                                <p>Hasil Volume Balok ==> </p>
+                            </div>
+                        </div>
+                        <div class="hasil-angka">
+                            <h1 id="hasilStringBalok">0</h1>
+                        </div>
+                    </div>
+               </div>
+        </div>
+    
+        <div class="spacer"></div>
+      
+        <div class="container-out">
+            <div class="container">
+                <h3>Kubus</h3>
+            
+                <div class="inputan">
+            
+                    <div class="container-input">
+                        <div class="inputBalok">
+                            <p>Masukkan Sisi :</p>
+                            <input id="sisi" type="number">
+                        </div>
+                    </div>
+                    <div class="container-hasil">
+                        <div class="button-hasil">
+                            <button id="done" onclick="hitungKubus()">Hitung</button>
+                        </div>
+                        <div class="hasil-input">
+                            <p >Hasil Volume Kubus ==> </p>
+                        </div>
+                    </div>
+                    <div class="hasil-angka">
+                        <h1 id="hasilStringKubus">0</h1>
+                    </div>
+                </div>
+               </div>
+        </div>
+        <div class="spacer"></div>
+        <div class="container-out">
+            <div class="container">
+                <h3>Kerucut</h3>
+                <div class="inputan">
+                    <div class="container-input">
+                        <div class="inputBalok">
+                            <p>Masukkan Jari - Jari : </p>
+                            <input id="jari" type="number">
+                        </div>
+                    </div>
+            
+            
+                    <div class="container-hasil">
+                        <div class="button-hasil">
+                            <button id="done" onclick="hitungKerucut()">Hitung</button>
+                        </div>
+                        <div class="hasil-input">
+                            <p>Hasil Volume Kerucut ==> </p>
+                        </div>
+                    </div> 
+                    <div class="hasil-angka">
+                        <h1 id="hasilStringKerucut">0</h1>
+                    </div>    
+                </div>
+        </div>
+    </div>
+    
+</body>
+</html>
